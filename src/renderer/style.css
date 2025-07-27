@@ -1,0 +1,333 @@
+/* 🌙 Dark mode inputs */
+body.dark-mode input,
+body.dark-mode textarea {
+  color: #fff !important;
+  caret-color: #fff;
+}
+
+:root {
+  --bg-main: #fef6f9;
+  --bg-card: #ffffffcc;
+  --bg-modal: #fff6fa;
+  --bg-btn: #f48fb1;
+  --bg-btn-hover: #ec407a;
+  --bg-input: #fff;
+  --shadow-main: #b39ddb55;
+  --shadow-card: #d6caddaa;
+  --shadow-btn: #f48fb177;
+  --shadow-btn-hover: #ec407aaa;
+  --text-main: #4a4a4a;
+  --text-title: #5a506a;
+  --text-label: #b39ddb;
+  --text-btn: #fff;
+  --border-main: #d8c3d8;
+}
+
+body.dark-mode {
+  --bg-main: #18122b;
+  --bg-card: #231942cc;
+  --bg-modal: #231942;
+  --bg-btn: #7c4dff;
+  --bg-btn-hover: #b39ddb;
+  --bg-input: #2d225a;
+  --shadow-main: #00000055;
+  --shadow-card: #00000055;
+  --shadow-btn: #2228;
+  --shadow-btn-hover: #4448;
+  --text-main: #f1f1f1;
+  --text-title: #fff;
+  --text-label: #bbb;
+  --text-btn: #fff;
+  --border-main: #444;
+}
+
+#darkModeBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2000;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: none;
+  background: #ede7f6;
+  color: #5a506a;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px #b39ddb55;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+#darkModeBtn:hover {
+  background: #b39ddb;
+  color: #fff;
+  box-shadow: 0 8px 24px #7c4dff77;
+  transform: scale(1.08);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+  background: var(--bg-main);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-main);
+  transition: background 0.3s, color 0.3s;
+}
+
+h1 {
+  margin-top: 40px;
+  color: var(--text-title);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  transition: color 0.3s;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+#taskInput,
+#newTaskTitle {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-main);
+  background: var(--bg-input);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+#taskInput:focus,
+#newTaskTitle:focus {
+  outline: none;
+  border-color: var(--text-label);
+  box-shadow: 0 0 8px var(--shadow-main);
+}
+
+#newTaskDesc,
+#descInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-main);
+  background: var(--bg-input);
+  resize: vertical;
+  min-height: 60px;
+  margin-bottom: 10px;
+  margin-top: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#newTaskDesc:focus,
+#descInput:focus {
+  outline: none;
+  border-color: var(--text-label);
+  box-shadow: 0 0 8px var(--shadow-main);
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin-top: 32px;
+  width: 360px;
+}
+
+#taskList li {
+  background: var(--bg-card);
+  margin-bottom: 14px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px var(--shadow-card);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#taskList li:hover {
+  box-shadow: 0 6px 18px var(--shadow-main);
+  transform: translateY(-2px);
+}
+
+#taskList .task-title {
+  flex: 1;
+  margin-left: 14px;
+  font-size: 1.1rem;
+  color: var(--text-title);
+  word-break: break-word;
+  transition: color 0.3s;
+}
+
+#taskList .done {
+  text-decoration: line-through;
+  color: #bdbdbd;
+  font-style: italic;
+}
+
+#taskList button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin-left: auto;
+  color: var(--bg-btn);
+  transition: color 0.3s, transform 0.3s;
+}
+
+#taskList button:hover {
+  color: var(--bg-btn-hover);
+  transform: scale(1.2);
+}
+
+#addBtn,
+#saveTaskBtn,
+#saveDescBtn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text-btn);
+  background: var(--bg-btn);
+  box-shadow: 0 2px 6px var(--shadow-btn);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+#addBtn:hover,
+#saveTaskBtn:hover,
+#saveDescBtn:hover {
+  background: var(--bg-btn-hover);
+  box-shadow: 0 4px 12px var(--shadow-btn-hover);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--bg-modal);
+  margin: 10% auto;
+  padding: 24px 20px 18px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px var(--shadow-main);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+#addTaskModal .modal-content {
+  padding: 28px 24px 22px;
+  gap: 10px;
+  animation: modalFadeIn 0.25s;
+}
+
+#addTaskModal h2 {
+  color: var(--bg-btn-hover);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#descView {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+#descText {
+  flex: 1;
+  min-height: 1.5em;
+  word-break: break-word;
+}
+
+#editDescBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text-label);
+  transition: color 0.2s;
+  margin-top: 2px;
+}
+
+#editDescBtn:hover {
+  color: #ec407a;
+}
+
+.desc-label {
+  font-size: 0.97rem;
+  color: #5a506a;
+  margin-bottom: 4px;
+  display: block;
+  font-weight: 600;
+}
+
+.desc-label-hidden,
+.desc-input-hidden,
+.desc-save-hidden {
+  display: none;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.7rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #ec407a;
+}
+
+header.chronos-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}

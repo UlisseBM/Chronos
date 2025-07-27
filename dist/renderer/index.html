@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Chronos</title>
+</head>
+
+<body>
+    <header class="chronos-header">
+        <h1>Chronos: Task List</h1>
+    </header>
+    <button id="addBtn">Add Task</button>
+
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <span id="closeAddTaskModal" class="close">&times;</span>
+            <h2>New Task</h2>
+            <label for="newTaskTitle" class="desc-label">Title</label>
+            <input id="newTaskTitle" type="text" placeholder="Task title..." maxlength="100" />
+            <label for="newTaskDesc" class="desc-label">Description (optional)</label>
+            <textarea id="newTaskDesc" rows="3" placeholder="Enter a description..."></textarea>
+            <button id="saveTaskBtn">Create</button>
+        </div>
+    </div>
+
+    <ul id="taskList"></ul>
+
+    <div id="descModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Description</h2>
+            <div id="descView">
+                <div id="descText" class="task-desc"></div>
+                <button id="editDescBtn" title="Edit description">✏️</button>
+            </div>
+            <textarea id="descInput" rows="4" placeholder="Enter a description..." class="desc-input-hidden"></textarea>
+            <button id="saveDescBtn" class="desc-save-hidden">Save</button>
+        </div>
+    </div>
+
+    <script type="module" src="renderer.js"></script>
+    <button id="darkModeBtn" title="Toggle dark mode" aria-label="Dark mode">🌙</button>
+    <script>
+        const darkBtn = document.getElementById('darkModeBtn');
+        function setDarkMode(active) {
+            if (active) {
+                document.body.classList.add('dark-mode');
+                document.documentElement.classList.add('dark-mode');
+                darkBtn.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.documentElement.classList.remove('dark-mode');
+                darkBtn.textContent = '🌙';
+            }
+        }
+        darkBtn.addEventListener('click', () => {
+            const isDark = document.body.classList.contains('dark-mode');
+            setDarkMode(!isDark);
+        });
+        // Siempre inicia en modo claro
+        setDarkMode(false);
+    </script>
+</body>
+
+</html>

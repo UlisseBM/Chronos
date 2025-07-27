@@ -1,0 +1,23 @@
+{
+  "name": "chronos",
+  "version": "1.0.0",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "copy-assets": "copyfiles -u 2 src/renderer/*.html src/renderer/*.css dist/renderer/",
+    "build": "tsc && npm run copy-assets",
+    "start": "npm run build && electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/electron": "^1.6.12",
+    "@types/node": "^24.1.0",
+    "copyfiles": "^2.4.1",
+    "electron": "^37.2.4",
+    "typescript": "^5.8.3"
+  }
+}
