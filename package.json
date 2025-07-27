@@ -6,8 +6,26 @@
     "copy-assets": "copyfiles -u 2 src/renderer/*.html src/renderer/*.css dist/renderer/",
     "build": "tsc && npm run copy-assets",
     "start": "npm run build && electron .",
+    "dist": "electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc -w"
+  },
+  "build": {
+    "appId": "com.ulissebm.chronos",
+    "productName": "Chronos",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "artifactName": "Chronos-Setup-${version}.exe"
+    }
   },
   "keywords": [],
   "author": "",
